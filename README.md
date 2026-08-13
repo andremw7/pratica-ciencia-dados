@@ -14,5 +14,6 @@ Depois de rastrear locais por notas, descobrir quais os padrões desses lugares,
 Posteriormente será extraída uma amostra aleatória de cada região, para representatividade.
 Após esse mapeamento, outras bases de dados serão inseridas pra estudar correlações por desempenho ao longo do tempo.
 
+A base de dados são os micro dados do enem a partir de 2020 até 2024
 
 
