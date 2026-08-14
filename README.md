@@ -1,6 +1,8 @@
 # pratica-ciencia-dados
 Projeto da disciplina de prática em ciência de dados
 
+link google colab: https://colab.research.google.com/drive/1ljnuLE1eCl_gaTEDe5A-cB3rSk2-MCD5
+
 Relatório dia 13 de agosto
 
 Definição das base de dados
