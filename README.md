@@ -31,7 +31,7 @@ Para garantir que os dados reflitam com precisão a diversidade do país, não f
 
 ## 💡 Processamento em Blocos (Proteção de Memória RAM)
 
-Como cada arquivo anual possui gigabytes de tamanho e mais de 100 colunas, tentar carregar tudo de uma só vez estoura os limites de RAM do servidor.
+Como cada arquivo anual possui gigabytes de tamanho e mais de 100 colunas, carregar tudo de uma só vez estoura os limites de RAM do servidor.
 
 A solução aplicada foi o **processamento em blocos (`chunksize`)**:
 1. O código lê o arquivo em fatias de 100.000 linhas.
