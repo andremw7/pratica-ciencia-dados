@@ -1,21 +1,39 @@
-# pratica-ciencia-dados
-Projeto da disciplina de prática em ciência de dados
 
 link google colab: https://colab.research.google.com/drive/1ljnuLE1eCl_gaTEDe5A-cB3rSk2-MCD5
 
 Relatório dia 13 de agosto
 
-Definição das base de dados
-Exploração de variáveis em comum para o cruzamento das bases de dados
-Leitura e importação das bases de dados pra leitura no colab
+# Projeto Estratificação ENEM
 
-O projeto consta em extratificar notas de participantes do Enem a partir da base de dados do INEP. O objetivo é mapear as regiões brasileiras por notas, e a partir desses locais encontrar quais sãos os padrões dos locais por nota.
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?style=for-the-badge&logo=pandas)
+![Google Colab](https://img.shields.io/badge/Google%20Colab-Cloud%20Execution-F9AB00?style=for-the-badge&logo=googlecolab)
 
-Depois de rastrear locais por notas, descobrir quais os padrões desses lugares, para fazer um agrupamento identificando, os fatores que levaram a tal nota.
+---
 
-Posteriormente será extraída uma amostra aleatória de cada região, para representatividade.
-Após esse mapeamento, outras bases de dados serão inseridas pra estudar correlações por desempenho ao longo do tempo.
+## 📌 Sobre o Projeto
 
-A base de dados são os micro dados do enem a partir de 2020 até 2024
+Os Microdados do ENEM contêm milhões de registros a cada edição, gerando arquivos extremamente pesados que dificultam a leitura direta e costumam travar a memória RAM de ambientes em nuvem, como o Google Colab.
 
+Para resolver esse entrave e viabilizar análises ágeis e precisas, este projeto realizou a **amostragem estatística dos dados entre 2020 e 2024**. O objetivo principal foi reduzir o tamanho dos arquivos sem perder a qualidade da informação, mantendo um retrato fiel da realidade educacional do país.
 
+---
+
+## 🎯 Amostragem Estratificada (10% Representativo)
+
+Para garantir que os dados reflitam com precisão a diversidade do país, não fizemos uma escolha aleatória simples. Utilizou-se a **Amostragem Estratificada por Estado (UF)**:
+
+* **Proporção Exata:** Retiramos exatamente **10% dos participantes de cada estado brasileiro**.
+* **Representatividade Real:** Estados com maior número de inscritos mantêm seu peso proporcional exato na amostra final.
+* **Agilidade na Análise:** A redução para 10% do volume total mantém total confiabilidade estatística e permite gerar gráficos e modelos com rapidez.
+
+---
+
+## 💡 Processamento em Blocos (Proteção de Memória RAM)
+
+Como cada arquivo anual possui gigabytes de tamanho e mais de 100 colunas, tentar carregar tudo de uma só vez estoura os limites de RAM do servidor.
+
+A solução aplicada foi o **processamento em blocos (`chunksize`)**:
+1. O código lê o arquivo em fatias de 100.000 linhas.
+2. Extrai a amostra de 10% proporcional de cada estado para aquele bloco.
+3. Descarte o excesso da memória temporária e passa para a próxima fatia.
