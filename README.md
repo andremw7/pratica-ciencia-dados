@@ -54,3 +54,14 @@ A partir da amostra estatística representativa de 10% previamente extraída dos
 * **Tratamento do Volume:** A amostragem otimizada permitiu a renderização completa dos microdados regionais de forma fluida, sem saturação visual ou perdas na amostragem de *outliers*.
 
 ---
+20 de agosto
+
+## 📈 Análise Temporal de Desempenho Regional (2020–2024)
+
+Com a consolidação das amostras estratificadas de 10% para o quinquênio 2020–2024, foi construído um painel longitudinal de boxplots agrupados por ano e por região para investigar a evolução temporal das notas.
+
+### 🔍 Principais Achados Científicos
+* **Estabilidade Estrutural da Disparidade:** Ao longo dos 5 anos analisados, a hierarquia regional de desempenho manteve-se constante, com as regiões Sudeste e Sul apresentando medianas e limites superiores superiores às demais regiões em todas as edições.
+* **Comportamento por Área:** 
+  * **Matemática e Redação:** Apresentam a maior dispersão (caixas mais amplas) e os maiores tetos de nota, concentrando a maior parte dos *outliers* de alta performance.
+  * **Linguagens e Códigos:** Apresenta a menor amplitude de notas, com forte concentração na faixa mediana e raros casos de notas extremas acima de 800 pontos.
