@@ -5,9 +5,6 @@ Relatório dia 13 de agosto
 
 # Projeto Estratificação ENEM
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python)
-![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?style=for-the-badge&logo=pandas)
-![Google Colab](https://img.shields.io/badge/Google%20Colab-Cloud%20Execution-F9AB00?style=for-the-badge&logo=googlecolab)
 
 ---
 
