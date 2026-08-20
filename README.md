@@ -96,7 +96,7 @@ O coeficiente de correlação ($r$) mede a força da relação entre duas variá
 
 ---
 
-### 💡 Principais Achados do Quinquênio (2019–2023)
+### 💡 Conclusões (2019–2023)
 
 1. **Ridez do Hiato Público vs. Privado:** A correlação da rede pública manteve-se presa no patamar negativo de $-0{,}45$ durante todo o período. Isso demonstra que as perdas educacionais acumuladas durante o período pandêmico atingiram os estudantes da rede pública de forma severa e uniforme em todas as regiões brasileiras.
 2. **Prevalência do Factor Econômico:** Renda familiar e o tipo de gestão escolar (pública ou privada) continuam sendo os dois maiores preditores do desempenho no ENEM. O gráfico evidencia que o exame não avalia apenas o conhecimento individual, mas reflete diretamente as desigualdades socioeconômicas estruturais do Brasil.
