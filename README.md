@@ -1,5 +1,5 @@
 
-link google colab: https://colab.research.google.com/drive/1ljnuLE1eCl_gaTEDe5A-cB3rSk2-MCD5
+link google colab: https://colab.research.google.com/drive/1NinqFDrJEfxpv7NSHcP6VAH2_dYe9pGf
 
 Relatório dia 13 de agosto
 
