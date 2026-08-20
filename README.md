@@ -1,5 +1,8 @@
 
-link google colab: https://colab.research.google.com/drive/1KZAAyHxwOvHBa5UGyTq9yncKTCEctppS?usp=sharing
+link google colab:
+  Proporção por estado: https://colab.research.google.com/drive/1KZAAyHxwOvHBa5UGyTq9yncKTCEctppS?usp=sharing
+  Estratificação por região: https://colab.research.google.com/drive/1NinqFDrJEfxpv7NSHcP6VAH2_dYe9pGf
+
 
 Relatório dia 13 de agosto
 
