@@ -56,7 +56,7 @@ A partir da amostra estatística representativa de 10% previamente extraída dos
 ---
 20 de agosto
 
-## 📈 Análise Temporal de Desempenho Regional (2020–2024)
+## 📈 Análise Temporal de Desempenho Regional (2019–2023)
 
 Com a consolidação das amostras estratificadas de 10% para o quinquênio 2020–2024, foi construído um painel longitudinal de boxplots agrupados por ano e por região para investigar a evolução temporal das notas.
 
