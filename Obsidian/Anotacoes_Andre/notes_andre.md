@@ -38,9 +38,9 @@ A partir da amostra estatística representativa de 10% previamente extraída dos
 
 # 20 de agosto
 
-## 📈 Análise Temporal de Desempenho Regional (2019–2023)
+## 📈 Análise Temporal de Desempenho Regional (2020–2024)
 
-Com a consolidação das amostras estratificadas de 10% para o quinquênio 2020–2024, foi construído um painel longitudinal de boxplots agrupados por ano e por região para investigar a evolução temporal das notas.
+Com a consolidação das amostras estratificadas de 10% para o quinquênio 2020–2024, foi construído um painel longitudinal de boxplots agrupados por ano e por estados de cada região para investigar a evolução temporal das notas.
 
 ### 🔍 Principais Achados Científicos
 * **Estabilidade Estrutural da Disparidade:** Ao longo dos 5 anos analisados, a hierarquia regional de desempenho manteve-se constante, com as regiões Sudeste e Sul apresentando medianas e limites superiores superiores às demais regiões em todas as edições.
@@ -54,23 +54,7 @@ Para investigar as causas das disparidades regionais de desempenho, analisou-se 
 
 A análise utilizou $100\%$ da amostra estatística de $10\%$ dos microdados anuais do INEP. A medição foi realizada calculando o Coeficiente de Correlação de Pearson ($r$) isoladamente para cada combinação de **[Ano + Região]**, permitindo acompanhar se a influência de cada fator aumentou, diminuiu ou se manteve estável ao longo do tempo.
 
-### 📖 Guia de Leitura dos Gráficos de Correlação
 
-O coeficiente de correlação ($r$) mede a força da relação entre duas variáveis em uma escala que vai de **$-1{,}00$ a $+1{,}00$**:
-
-* **Valores Positivos ($> 0$):** Indicam relação direta. Quanto maior o nível da variável (ex: maior renda), **maior** tende a ser a nota média do candidato.
-* **Valores Próximos de Zero ($\approx 0$):** Indicam pouca ou nenhuma interferência daquela variável na pontuação do estudante.
-* **Valores Negativos ($< 0$):** Indicam relação de inversão ou desvantagem estatística em relação ao grupo de referência.
-
-### 📊 Detalhamento Didático das Variáveis Analisadas
-
-| Variável Analisada | Codificação no Modelo | Sinal no Gráfico | O que o resultado indica na prática? |
-| :--- | :--- | :---: | :--- |
-| **Escola Pública (vs. Privada)** | $1 = \text{Pública}$, $0 = \text{Privada}$ | **Negativo** ($-0{,}40$ a $-0{,}50$) | **Hiato Institucional:** Como a rede privada obtém notas superiores, a pública fica no lado negativo. Quanto mais distante do zero (mais para baixo), maior é a desvantagem do aluno da escola pública. |
-| **Renda Familiar** | $0$ (Classe A/Baixa) a $16$ (Classe Q/Alta) | **Positivo** ($+0{,}40$ a $+0{,}55$) | **Alavanca Financeira:** É o fator individual de maior impacto positivo. Famílias com maior renda garantem acesso a melhores materiais, cursos e infraestrutura de estudos. |
-| **Escolaridade da Mãe e do Pai** | $0$ (Sem estudo) a $7$ (Pós-Graduação) | **Positivo** ($+0{,}25$ a $+0{,}40$) | **Capital Cultural:** O nível de instrução dos pais impulsiona as notas dos filhos, sendo o impacto da escolaridade materna ligeiramente superior ao paterno em quase todas as regiões. |
-| **Acesso à Internet** | $0 = \text{Não}$, $1 = \text{Sim}$ | **Positivo** ($+0{,}15$ a $+0{,}25$) | **Inclusão Digital:** A presença de internet em casa atua como um facilitador pedagógico constante, mantendo correlação positiva com a nota em todo o país. |
-| **Idade / Faixa Etária** | Idade contínua ou Faixa Etária | **Negativo** ($-0{,}15$ a $-0{,}25$) | **Defasagem Escolar:** Candidatos mais velhos pontuam menos devido ao tempo de afastamento dos estudos, reprovações anteriores ou necessidade de conciliar trabalho e escola. |
 
 ### 💡 Conclusões (2019–2023)
 
