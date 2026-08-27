@@ -1,0 +1,7 @@
+Todos os códigos foram desenvolvidos no Google Colab
+
+Colab com a leitura dos dados e extração da amostra
+https://colab.research.google.com/drive/1KZAAyHxwOvHBa5UGyTq9yncKTCEctppS?usp=sharing
+
+Colab com as análises
+https://colab.research.google.com/drive/1ISp-xfyxZy2MVnCaUHL-KK-7i9DBzeSa?usp=sharing
