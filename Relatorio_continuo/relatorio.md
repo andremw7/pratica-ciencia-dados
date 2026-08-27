@@ -36,11 +36,14 @@ A partir dos resultados iniciais, deverão ser identificadas outras bases de dad
 
 ## 20/08
 
-### Tarefas
-**Tarefa geral**: 
+### Observações do professor
+- Recomendação: fazer uma linha do tempo com tudo o que foi feito.
+- Análise dos dados: analisar o que é possível utilizar, quais valores são nulos, quais podem ser relacionados, etc.
+- Para o mapa coroplético: não utilizar a média como medida descritiva. Deve-se verificar a distribuição dos dados para ver quais medidas são mais adequadas.
 
+### Tarefas
 **Tarefas individuais**:
-- André: 
-- Camila: 
+- André: gráficos de correlação e análise temporal
+- Camila: refazer gráficos de barras empilhadas e análise de valores nulos
 - Guilherme: *faltou*
-- Vinicius: 
+- Vinicius: mapa coroplético
