@@ -13,7 +13,7 @@ Este projeto analisa as disparidades de desempenho no Exame Nacional do Ensino M
 
 ### 📅 Semana 1 — 13 de Agosto: Amostragem Estratificada e Preparação dos Dados
 - **Objetivo Técnico:** Reduzir a carga computacional sem comprometer a representatividade estatística do território nacional.
-- **Procedimento Executado:** Os microdados brutosa abarcavam milhões de inscritos por edição. Foi desenvolvida uma rotina de amostragem aleatória estratificada proporcional às Unidades Federativas (UFs) e aos anos de aplicação (2020 a 2024). Essa técnica garantiu que estados com menor densidade demográfica mantivessem sua representatividade proporcional, permitindo cruzamentos sem viés de seleção regional.
+- **Procedimento Executado:** Os microdados brutos abarcavam milhões de inscritos por edição. Foi desenvolvida uma rotina de amostragem aleatória estratificada proporcional às Unidades Federativas (UFs) e aos anos de aplicação (2020 a 2024). Essa técnica garantiu que estados com menor densidade demográfica mantivessem sua representatividade proporcional, permitindo cruzamentos sem viés de seleção regional.
 
 ### 📅 Semana 2 — 20 de Agosto: Análise Exploratória Geral com Boxplots Por Área
 - **Objetivo Técnico:** Avaliar a dispersão, assimetria e presença de valores discrepantes (outliers) na distribuição das notas.
