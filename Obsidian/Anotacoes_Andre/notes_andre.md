@@ -53,5 +53,33 @@ Isolar o impacto das variáveis socioeconômicas em cada uma das 5 disciplinas d
 - **Acesso à Internet (`Q025`):** Presença de conexão banda larga/móvel na residência.
 - **Computadores em Casa (`Q024`):** Quantidade de desktops/notebooks disponíveis para estudo.
 
+### 📅 Semana 5 — 10 de Setembro: Validação Preditiva e Métricas de Generalização (80/20 Train-Test)
+
+#### 🎯 Objetivo Técnico
+Validar a capacidade preditiva dos 5 modelos de *Random Forest* em dados inéditos, mensurando a margem de erro das previsões e avaliando a proporção de variância das notas explicada exclusivamente pelo contexto socioeconômico do estudante.
+
+#### 🛠️ Procedimento Executado
+1. **Divisão Treino/Teste (80/20):**
+   - A amostra foi particionada de forma aleatória: 80% dos registros foram destinados ao treinamento do algoritmo e 20% foram isolados estritamente para simular a previsão em alunos inéditos.
+2. **Avaliação por Métricas de Regressão:**
+   - **$R^2$ (Coeficiente de Determinação):** Mede a porcentagem da variação da nota explicada pelo modelo.
+   - **MAE (Erro Médio Absoluto):** A margem de erro média direta na escala de pontos do ENEM.
+   - **RMSE (Erro Quadrático Médio):** Penaliza erros mais graves, identificando oscilações atípicas no resultado.
+
+#### 📊 Desempenho Preditivo do Modelo por Disciplina
+
+| Área do Conhecimento | $R^2$ (Poder Explicativo) | Erro Médio (MAE) | Erro Quadrático (RMSE) |
+| :--- | :--- | :--- | :--- |
+| **Matemática** | 21,24% | 84,88 pts | 104,48 pts |
+| **Redação** | 12,77% | 146,03 pts | 194,54 pts |
+| **Linguagens** | 18,37% | 52,78 pts | 66,52 pts |
+| **Ciências Humanas** | 18,00% | 63,85 pts | 80,07 pts |
+| **Ciências da Natureza** | 18,39% | 57,62 pts | 71,58 pts |
+
+#### 💡 Análise e Justificativa Científica dos Resultados
+- **Sensibilidade Econômica em Exatas ($R^2 = 21,24\%$):** Matemática é a área onde o perfil socioeconômico mais abre vantagem, demonstrando que acesso a boas escolas e infraestrutura tecnológica afeta diretamente o desempenho lógico.
+- **Autonomia Individual na Redação ($R^2 = 12,77\%$):** Registrou o menor poder explicativo e o maior erro médio (146 pts). Isso evidencia que o aprendizado de escrita, treino prático e o risco de desvios ao tema dependem de fatores individuais do candidato, e não da sua renda.
+- **Validação Acadêmica:** Explicar entre 12% e 21% da variação com dados exclusivamente socioeconômicos é um resultado consistente na literatura educacional. Os aproximadamente 80% restantes da pontuação pertencem a fatores não computados no questionário (horas de estudo individual, suporte pedagógico e estabilidade emocional no dia da prova).
+
 ---
 
