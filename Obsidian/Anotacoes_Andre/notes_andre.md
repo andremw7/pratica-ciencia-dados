@@ -41,6 +41,27 @@ Este projeto analisa as disparidades de desempenho no Exame Nacional do Ensino M
 
 ---
 
+### 📅 Semana 4 — 03 de Setembro: Modelagem Não-Linear e Ranking de Importância de Variáveis (Feature Importance)
+
+#### 🎯 Objetivo Técnico
+Quantificar a capacidade explicativa das variáveis socioeconômicas sobre a nota média geral dos candidatos, superando as limitações da correlação linear clássica (Pearson) diante de dados mistos (ordinais e nominais).
+
+#### 🛠️ Procedimento Executado
+1. **Engenharia de Recursos e Codificação (Feature Engineering):**
+   - **Variáveis Ordinais (`Q001`, `Q002`, `Q006`, `Q022`, `Q024`):** Mapeamento hierárquico numérico para preservar a escala de intensidade (ex: faixas de renda de A a Q e graus de escolaridade).
+   - **Variáveis Nominais (`TP_ESCOLA`, `Q003`, `Q004`, `Q025`):** Aplicação de codificação Dummy/One-Hot Encoding para permitir o processamento algébrico sem impor ordem hierárquica artificial.
+
+2. **Treinamento do Modelo Preditivo (Random Forest Regressor):**
+   - Treinamento do modelo na totalidade da amostra nacional (2020–2024) utilizando a nota média das 5 áreas como variável alvo (*target*).
+   - Configuração de hiperparâmetros otimizada (`n_estimators=100`, `max_depth=10`, `n_jobs=-1`) para garantir convergência rápida e prevenir *overfitting*.
+
+3. **Agrupamento e Normalização dos Impactos:**
+   - As contribuições das variáveis nominais codificadas foram reagrupadas às suas colunas de origem.
+   - Cálculo da diminuição média de impureza (Mean Decrease in Impurity - MDI) convertida em porcentagem relativa de explicação.
+
+#### 📊 Resultados Obtidos
+- **Classificação Visual:** Construção de gráfico de barras horizontais categorizado por cores para diferenciar a natureza das variáveis (Azul = Ordinais; Verde = Nominais).
+- **Hierarquia de Impacto:** Identificação clara dos fatores com maior poder explicativo no desempenho final do candidato, estabelecendo o ranking definitivo para a elaboração das conclusões da pesquisa.
 ## 🔑 Mapeamento das Variáveis Socioeconômicas Selecionadas
 Para evitar ruído visual com perguntas de pouca relevância para a nota (como bens domésticos supérfluos), o projeto concentrou a análise em 8 variáveis chaves divididas em três pilares:
 
@@ -60,6 +81,3 @@ Para evitar ruído visual com perguntas de pouca relevância para a nota (como b
 
 ---
 
-## 🚀 Próximas Passos
-- [ ] Implementação de testes não-paramétricos (Kruskal-Wallis e Mann-Whitney U) para validar o grau de significância estatística entre as medianas dos grupos.
-- [ ] Construção de modelos de regressão para mensurar o peso relativo de cada uma das 8 variáveis socioeconômicas no resultado final da nota.
