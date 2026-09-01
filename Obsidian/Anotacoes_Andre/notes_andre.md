@@ -31,51 +31,25 @@ Este projeto analisa as disparidades de desempenho no Exame Nacional do Ensino M
   - 🏆 **Estado Campeão:** A Unidade Federativa com a maior mediana regional.
   - 🔻 **Estado com Menor Desempenho:** A Unidade Federativa com a menor mediana regional.
 
-### 📅 Semana 4 — 03 de Setembro: Arquitetura de Interatividade e Tratamento do Pipeline
-- **Objetivo Técnico:** Desenvolver uma interface gráfica reativa imune a travamentos do ambiente de execução.
-- **Procedimento Executado:** Estruturação do controle de fluxo via `ipywidgets`. Foi resolvido o gargalo de renderização em nuvem substituindo a geração dinâmica de JavaScript instável pela renderização estática reativa via gerenciador de saída (`Output`), limpando a memória a cada clique e garantindo a exibição do painel sem telas brancas.
-
-### 📅 Semana 5 — 10 de Setembro: Painel Expandido de Raio-X Socioeconômico
-- **Objetivo Técnico:** Mapear o perfil socioeconômico comparativo entre os estados de maior e menor mediana.
-- **Procedimento Executado:** Construção de um painel visual composto por gráficos de barras horizontais ordenadas (eliminando gráficos de pizza por questões de usabilidade perceptiva), agrupando os indicadores socioeconômicos essenciais.
-
----
-
-### 📅 Semana 4 — 03 de Setembro: Modelagem Não-Linear e Ranking de Importância de Variáveis (Feature Importance)
+### 📅 Semana 4 — 03 de Setembro: Modelagem Preditiva Por Área do Conhecimento e Matriz de Importância (Heatmap)
 
 #### 🎯 Objetivo Técnico
-Quantificar a capacidade explicativa das variáveis socioeconômicas sobre a nota média geral dos candidatos, superando as limitações da correlação linear clássica (Pearson) diante de dados mistos (ordinais e nominais).
+Isolar o impacto das variáveis socioeconômicas em cada uma das 5 disciplinas do ENEM individualmente, respeitando as especificidades da Teoria de Resposta ao Item (TRI) e evitando a distorção provocada pela mistura de notas de provas distintas.
 
 #### 🛠️ Procedimento Executado
-1. **Engenharia de Recursos e Codificação (Feature Engineering):**
-   - **Variáveis Ordinais (`Q001`, `Q002`, `Q006`, `Q022`, `Q024`):** Mapeamento hierárquico numérico para preservar a escala de intensidade (ex: faixas de renda de A a Q e graus de escolaridade).
-   - **Variáveis Nominais (`TP_ESCOLA`, `Q003`, `Q004`, `Q025`):** Aplicação de codificação Dummy/One-Hot Encoding para permitir o processamento algébrico sem impor ordem hierárquica artificial.
+1. **Decomposição do Target por Disciplina:**
+   - Em vez de unificar as notas em uma métrica geral, foram treinados 5 modelos independentes de *Random Forest Regressor*, um para cada área do exame: Matemática (`NU_NOTA_MT`), Redação (`NU_NOTA_REDACAO`), Linguagens (`NU_NOTA_LC`), Ciências Humanas (`NU_NOTA_CH`) e Ciências da Natureza (`NU_NOTA_CN`).
+2. **Engenharia de Recursos e Codificação (Feature Engineering):**
+   - **Variáveis Ordinais (`Q001`, `Q002`, `Q006`, `Q022`, `Q024`):** Mapeamento numérico hierárquico para preservar a escala de intensidade de Renda, Escolaridade e Equipamentos.
+   - **Variáveis Nominais (`TP_ESCOLA`, `Q003`, `Q004`, `Q025`):** Aplicação de One-Hot Encoding para categorias sem ordem intrínseca (Ocupação dos pais, Tipo de escola e Internet).
+3. **Mensuração do Poder Explicativo:**
+   - Extração do MDI (*Mean Decrease in Impurity*) de cada modelo e reagrupamento das variáveis Dummy às suas colunas originais, convertendo as contribuições em porcentagens de explicação por disciplina.
+4. **Matriz Comparativa de Impacto (Heatmap):**
+   - Construção de um Mapa de Calor relacionando as variáveis socioeconômicas às 5 áreas do conhecimento, permitindo identificar visualmente quais fatores mais pesam em cada prova.
 
-2. **Treinamento do Modelo Preditivo (Random Forest Regressor):**
-   - Treinamento do modelo na totalidade da amostra nacional (2020–2024) utilizando a nota média das 5 áreas como variável alvo (*target*).
-   - Configuração de hiperparâmetros otimizada (`n_estimators=100`, `max_depth=10`, `n_jobs=-1`) para garantir convergência rápida e prevenir *overfitting*.
-
-3. **Agrupamento e Normalização dos Impactos:**
-   - As contribuições das variáveis nominais codificadas foram reagrupadas às suas colunas de origem.
-   - Cálculo da diminuição média de impureza (Mean Decrease in Impurity - MDI) convertida em porcentagem relativa de explicação.
-
-#### 📊 Resultados Obtidos
-- **Classificação Visual:** Construção de gráfico de barras horizontais categorizado por cores para diferenciar a natureza das variáveis (Azul = Ordinais; Verde = Nominais).
-- **Hierarquia de Impacto:** Identificação clara dos fatores com maior poder explicativo no desempenho final do candidato, estabelecendo o ranking definitivo para a elaboração das conclusões da pesquisa.
-## 🔑 Mapeamento das Variáveis Socioeconômicas Selecionadas
-Para evitar ruído visual com perguntas de pouca relevância para a nota (como bens domésticos supérfluos), o projeto concentrou a análise em 8 variáveis chaves divididas em três pilares:
-
-### 1. Capital Cultural Familiar
-- **Escolaridade da Mãe (`Q002`):** Nível de instrução formal da responsável feminina.
-- **Escolaridade do Pai (`Q001`):** Nível de instrução formal do responsável masculino.
-
-### 2. Status Sócio-Profissional e Econômico
-- **Renda Familiar Mensal (`Q006`):** Faixas salariais divididas de A a Q.
-- **Ocupação do Pai (`Q003`):** Grupo ocupacional do pai (trabalho braçal, técnico, superior, gestão).
-- **Ocupação da Mãe (`Q004`):** Grupo ocupacional da mãe.
-- **Tipo de Escola (`TP_ESCOLA`):** Percurso escolar no Ensino Médio (Pública vs. Privada).
-
-### 3. Inclusão e Infraestrutura Digital
+#### 📊 Principais Achados
+- **Disparidade por Disciplina:** Fatores econômicos (Renda e Computadores) possuem peso desproporcionalmente maior em provas exatas (Matemática).
+- **Peso do Capital Cultural:** A Escolaridade da Mãe e o Tipo de Escola exercem papel predominante no desempenho em Redação e Ciências Humanas, evidenciando como a bagagem cultural e a infraestrutura escolar afetam a capacidade interpretativa e de escrita.
 - **Acesso à Internet (`Q025`):** Presença de conexão banda larga/móvel na residência.
 - **Computadores em Casa (`Q024`):** Quantidade de desktops/notebooks disponíveis para estudo.
 
