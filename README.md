@@ -1,4 +1,4 @@
-# Projeto Estratificação ENEM
+# Educação: Como as condições socioeconômicas e educacionais das regiões brasileiras estão relacionadas ao desempenho dos participantes do ENEM.
 
 ## 📌 Sobre o Projeto
 
