@@ -22,4 +22,19 @@ O gráfico de barras empilhadas foi ajustado para que fosse possível selecionar
 
 ### Análise de dados nulos
 
-Foi feita uma análise de dados nulos, com possíveis correlações entre eles e onde eles esão localizados.
+Foi feita uma análise de dados nulos, com possíveis correlações entre eles e onde eles estão localizados. Para essa análise, foi utilizado o arquivo com todos os dados filtrados.
+
+**Conclusões**
+- Há apenas 3 valores de correlação: 1, 0 e -1.
+- As correlações 1 possivelmente indicam as variáveis em que, se uma é nula, as outras também serão.
+- As correlações -1 seriam das variáveis em que se um é nulo, o outro também deve ser. Esse caso entra para as variáveis que existem nos datasets de 2020, 2021, 2022 e 2023 e não existem no de 2024 e vice-versa.
+
+# 27/08
+
+### Análise dos anos de conclusão
+
+A ideia era fazer um gráfico de barras com os anos de conclusão do ensino médio para cada ano de aplicação do ENEM analisado. Entretanto, como extraímos a amostra com foco em quem iria concluir o ensino médio naquele ano e nas suas escolas, não há informações de alunos que concluíram o ensino médio em outros anos.
+
+### Dados do Censo Escolar
+
+Temos um código da escola que cada aluno do terceiro ano do Ensino Médio está no ano analisado. Portanto, buscamos dados do Censo Escolar para ligar aos nossos dados e analisar as condições de estudo dos estudantes, na tentativa de ligá-las ao desempenho no ENEM.
