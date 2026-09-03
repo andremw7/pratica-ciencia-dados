@@ -28,7 +28,7 @@ A partir dos resultados iniciais, deverão ser identificadas outras bases de dad
 **Tarefa geral**: avaliar qual tipo de gráfico representa melhor a distribuição das notas por **cidade, escola e região**. Além disso, buscar maneiras para lidar com o grande volume de dados.
 
 **Tarefas individuais**:
-- André: boxplots
+- André: boxplots por área
 - Camila: gráfico de barras empilhadas
 - Guilherme: *faltou*
 - Vinicius: mapa coroplético
@@ -43,7 +43,39 @@ A partir dos resultados iniciais, deverão ser identificadas outras bases de dad
 
 ### Tarefas
 **Tarefas individuais**:
-- André: gráficos de correlação e análise temporal
+- André: segregação regional e mapeamento dos estados exrtemos
 - Camila: refazer gráficos de barras empilhadas e análise de valores nulos
 - Guilherme: *faltou*
 - Vinicius: mapa coroplético
+
+
+## 27/08
+
+### Expectativas iniciais
+Foram feitas várias análises iniciais com relação às notas, entretanto, cada um utilizou uma amostra diferente. Por isso, iremos extrair uma amostra para padronizar os dados dos gráficos. Além disso, faremos outras análises e correlações com os dados disponíveis, que estejam relacionados aos possíveis fatores socioeconômicos influentes no desempenho no ENEM.
+
+### Tarefas
+**Tarefa geral**: ajustar os gráficos já feitos para adequarem-se a amostra e continuar com as análises.
+
+**Tarefas individuais**:
+- André: Modelagem Preditiva Por Área do Conhecimento e Matriz de Importância
+- Camila: selecionar amostra e análise de ano de conclusão
+- Guilherme: modelar amostra em um banco de dados
+- Vinicius: ajustar mapas à amostra
+
+
+## 03/09
+
+Parte dessa aula foi utilizada para apresentação do que cada grupo fez até o momento. O restante da aula foi destinada para a continuação do desenvolvimento do projeto. 
+
+### Expectativas iniciais
+Tendo analisado já os microdados do ENEM, verificamos que é possível ligá-los com os dados do Censo Escolar. Portanto, utilizaremos essa junção para avaliar se é possível que a infraestrutura da escola que cada aluno frequentou durante o ensino médio está relacionada ao seu desempenho na prova.
+
+### Tarefas
+**Tarefa geral**: analisar as possíveis correlações entre os dados das escolas com o desempenho dos alunos.
+
+**Tarefas individuais**:
+- André: 
+- Camila: 
+- Guilherme: 
+- Vinicius: 
