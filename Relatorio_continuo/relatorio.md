@@ -71,11 +71,3 @@ Parte dessa aula foi utilizada para apresentação do que cada grupo fez até o 
 ### Expectativas iniciais
 Tendo analisado já os microdados do ENEM, verificamos que é possível ligá-los com os dados do Censo Escolar. Portanto, utilizaremos essa junção para avaliar se é possível que a infraestrutura da escola que cada aluno frequentou durante o ensino médio está relacionada ao seu desempenho na prova.
 
-### Tarefas
-**Tarefa geral**: analisar as possíveis correlações entre os dados das escolas com o desempenho dos alunos.
-
-**Tarefas individuais**:
-- André: 
-- Camila: 
-- Guilherme: 
-- Vinicius: 
