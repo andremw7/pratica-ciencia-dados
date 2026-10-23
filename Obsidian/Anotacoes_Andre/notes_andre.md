@@ -1,4 +1,3 @@
-
 link google colab:
   Estratificação por região: https://colab.research.google.com/drive/1NinqFDrJEfxpv7NSHcP6VAH2_dYe9pGf
 
@@ -83,3 +82,34 @@ Validar a capacidade preditiva dos 5 modelos de *Random Forest* em dados inédit
 
 ---
 
+### 📅 09 de Outubro (Quinta-feira Retrasada): Análise Visual de Densidade e Bimodalidade
+
+#### 🎯 Objetivo Técnico
+Investigar a forma real da distribuição das notas na rede pública para justificar estatisticamente a escolha da Mediana como métrica oficial.
+
+#### 🛠️ Procedimento Executado
+- Construção de gráficos de densidade probabilística (KDE - *Kernel Density Estimation*) utilizando as notas da amostra validada para as cinco regiões do país, segmentando as curvas por matéria e ano.
+- **Principais Achados:** A visualização gráfica comprovou que a distribuição das notas não é perfeitamente simétrica (normal). Em diversas áreas, a curva apresenta forte assimetria ou comportamento bimodal (múltiplos picos). Isso justificou e validou matematicamente ao professor que a média seria puxada para "vales" distorcidos por notas muito extremas, tornando imperativo o uso focado na **Mediana** e no formato da curva para análises de políticas públicas mais realistas.
+
+---
+
+### 📅 16 de Outubro (Quinta-feira Passada): Embate Regional (Ceará vs. Sudeste na Rede Pública)
+
+#### 🎯 Objetivo Técnico
+Realizar um cruzamento e comparação direta e isolada entre a rede pública estadual do Ceará (famosa por suas políticas de educação) contra os estados mais ricos do Sudeste (SP, RJ, MG e ES).
+
+#### 🛠️ Procedimento Executado
+- Criação de um painel interativo dinâmico (com `ipywidgets`, `seaborn` e `matplotlib` no Google Colab) para renderizar curvas sobrepostas apenas de estudantes da rede pública, testando o desempenho entre 2020 e 2024.
+- **Principais Achados:** O cruzamento visual permitiu enxergar onde se posiciona o "bolo" principal de alunos. Ficou evidente como a curva do Ceará busca reduzir drasticamente a chamada "cauda inferior" (garantindo um piso de nota para alunos de menor renda), evidenciando os impactos do modelo cearense de tempo integral em manter os estudantes competitivos em relação aos gigantes econômicos do Sudeste.
+
+---
+
+### 📅 23 de Outubro (Hoje): Revisão Metodológica e Tratamento do Viés de Seleção (Orientação do Professor)
+
+#### 🎯 Objetivo Técnico
+Reavaliar a interpretação da análise de densidade após as observações do professor, buscando entender as anomalias onde o Sudeste sobressai em matérias de capital cultural.
+
+#### 🛠️ Procedimento Executado e Próximos Passos
+- Conduzimos uma análise crítica das curvas geradas (como a de Ciências Humanas em 2024), onde os picos do Sudeste se mostraram mais deslocados para a direita (notas maiores) quando comparados ao Ceará.
+- **Conclusão Metodológica Central:** Entendemos, a partir da orientação recebida, que a nota bruta nas curvas ainda carrega fortemente o capital cultural e econômico familiar (PIB regional), além de sofrer de um **Viés de Seleção** fortíssimo. Como o estado do Ceará adota a política de impulsionar quase $100\%$ dos alunos da rede pública a prestarem o ENEM, a sua base representa a população real por completo. Em contrapartida, no Sudeste, a ausência dessa política faz com que apenas os alunos já mais bem preparados prestem a prova, inflacionando a curva e distorcendo a avaliação pura da política pública escolar.
+- **Próximas Etapas no Projeto:** Os dados evidenciam que precisaremos cruzar as distribuições obtidas não apenas com as notas em si, mas controlando os resultados através da **Taxa de Cobertura do ENEM** de cada estado e dos dados estruturais do Censo Escolar (como o percentual de escolas estaduais em Regime de Tempo Integral).
