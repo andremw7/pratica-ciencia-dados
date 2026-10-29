@@ -9,5 +9,4 @@ Partindo dessa ideia inicial, desenvolveremos uma análise crítica da problemá
 ## 🔍 Organização do projeto
 
 - Relatorio_continuo: pasta em que se encontra os relatórios semanais;
-- Obsidian: pasta de configuração Obsidian (vault);
-- Desenvolvimentos: pasta com códigos desenvolvidos durante o projeto.
+- Obsidian: pasta de configuração Obsidian (vault) com anotações pessoais e análise geral do projeto.
