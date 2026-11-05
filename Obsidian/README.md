@@ -1,6 +1,6 @@
 # Análise - Educação: Como as condições socioeconômicas e educacionais das regiões brasileiras estão relacionadas ao desempenho dos participantes do ENEM.
 
-Este documento descreve o que foi feito no desenvolvimento do projeto e as justificativas para as decisões tomadas. O notebook Python utilizado (`ENEM_desigualdades_2020_2024.ipynb`) pode ser encontrado neste repositório na pasta `Obsidian`.
+Este documento descreve o que foi feito no desenvolvimento do projeto e as justificativas para as decisões tomadas. O notebook Python utilizado (`ENEM_2020_2024_Etapa2.ipynb`) pode ser encontrado neste repositório na pasta `Obsidian`. Para encontrar a linha do tempo, acesse a pasta `Relatório contínuo` deste repositório.
 
 ---
 
@@ -10,16 +10,16 @@ Este documento descreve o que foi feito no desenvolvimento do projeto e as justi
 
 O projeto foi dividido em três etapas:
 
-| Etapa | Seções | O que faz |
-|---|---|---|
-| **Etapa 1 - Análise Descritiva Inicial** | 1 a 23 | Constrói uma amostra padronizada dos microdados, valida a amostra e descreve a distribuição das notas por UF, região, área e ano |
-| **Etapa 2 - Junção de Bases e Análises** | 24 a 46 | Integra o ENEM a Censo Escolar, PNAD/IBGE e indicadores do Inep; examina associações, composição dos participantes e perfis; define atributos candidatos e o problema de previsão |
-| **Etapa 3 - Aprendizado de Máquina** | TBA | Construção do modelo preditivo |
+| Etapa | O que faz |
+|---|---|
+| **Etapa 1 - Análise Descritiva Inicial** | Constrói uma amostra padronizada dos microdados, valida a amostra e descreve a distribuição das notas por UF, região, área e ano |
+| **Etapa 2 - Junção de Bases e Análises** | Integra o ENEM a Censo Escolar, PNAD/IBGE e indicadores do Inep; examina associações, composição dos participantes e perfis; define atributos candidatos e o problema de previsão |
+| **Etapa 3 - Aprendizado de Máquina** | TBA - Construção do modelo preditivo |
 <!-- Ajustar texto da etapa 3 -->
 
 **Pergunta condutora:** onde estão as diferenças de desempenho, que características aparecem junto delas e quais informações já existentes antes do exame poderiam ajudar a antecipá-las?
 
-> **Observação:** Originalmente, a proposta para o trabalho era encontrar todas as bases que seriam utilizadas e apenas depois fazer as visualizações. Entretanto, optamos por fazer, primeiro, algumas visualizações do dataset principal que queríamos como base, para, depois, procurarmos outras bases que complementassem os nossos dados com base no que precisássemos.
+> **Observação:** Originalmente, a proposta para o trabalho era encontrar todas as bases que seriam utilizadas e apenas depois fazer as visualizações. Entretanto, optou-se por fazer, primeiro, algumas visualizações do dataset principal que serviu como base, para, depois, procurar outras bases que complementassem os dados com base no que precisasse.
 
 ---
 
@@ -27,7 +27,7 @@ O projeto foi dividido em três etapas:
 
 ### 2.0 Definição do problema
 
-Tendo decidido a temática do trabalho, era necessário encontrar uma base de dados que serviria como pilar principal do projeto. Escolhemos utilizar os microdados do ENEM, obtidos no site do governo (`https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem `).
+Tendo decidido a temática do trabalho, era necessário encontrar uma base de dados que serviria como pilar principal do projeto. Escolheu-se utilizar os microdados do ENEM, obtidos no site do governo (`https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem `).
 
 - **Janela temporal: 2020 a 2024**
   - **Por quê:** o ideal para uma análise é uma janela temporal de **no mínimo cinco anos**, para verificar se um padrão é persistente ou específico de um ano.
@@ -87,14 +87,14 @@ Ao carregar, o notebook:
 | 8 | Concentração de participantes por UF/região | Permite testar a hipótese inicial de que São Paulo concentra a maioria dos participantes |
 | 9–11 | Medidas de posição e dispersão | Calcula média, mediana, N, desvio-padrão, assimetria, mínimo, máximo, P5, Q1, Q3, P95 e amplitude interquartil por UF, região e Brasil |
 | 12 | Histogramas por UF, ano e área | Mostra onde as notas se concentram; marca média e mediana |
-| 15 | Shapiro–Wilk e gráfico Q–Q | Diagnóstico opcional, sem influenciar a medida adotada |
-| 16 | Mapa coroplético da mediana por UF | Analisar distribuição geográfica das medidas visualmente |
-| 17 | Evolução regional | Linhas por região, uma área ou todas, com eixos próprios |
-| 18 | Ranking de UFs | Ordena pela mediana; empates recebem a mesma posição |
-| 19 | Evolução dos estados dentro de uma região | Mostra também empates na maior mediana de cada ano |
-| 20 | Mapa de calor região × área | A cor é a **posição** (ranking) dentro de cada área, para não misturar escalas |
-| 21 | Percentual de notas acima de um limite | Limite escolhido pelo usuário; limite não é nota oficial de aprovação |
-| 22 | Volume de participantes × mediana | Dispersão por UF (eixo logarítmico opcional); não demonstra causalidade |
+| 13 | Shapiro–Wilk e gráfico Q–Q | Diagnóstico opcional, sem influenciar a medida adotada |
+| 14 | Mapa coroplético da mediana por UF | Analisar distribuição geográfica das medidas visualmente |
+| 15 | Evolução regional | Linhas por região, uma área ou todas, com eixos próprios |
+| 16 | Ranking de UFs | Ordena pela mediana; empates recebem a mesma posição |
+| 17 | Evolução dos estados dentro de uma região | Mostra também empates na maior mediana de cada ano |
+| 18 | Mapa de calor região × área | A cor é a **posição** (ranking) dentro de cada área, para não misturar escalas |
+| 19 | Percentual de notas acima de um limite | Limite escolhido pelo usuário; limite não é nota oficial de aprovação |
+| 20 | Volume de participantes × mediana | Dispersão por UF (eixo logarítmico opcional); não demonstra causalidade |
 
 ### 2.5.1 Justificativas
 
@@ -119,7 +119,7 @@ Nesta seção, serão apresentadas as principais justificativas para as escolhas
 
 - **Cada gráfico exibido isoladamente com filtros** responde à tarefa geral de avaliar qual tipo de gráfico representa melhor a distribuição por cidade, escola e região: uso de histograma (forma da distribuição), barras horizontais ordenadas (comparação entre UFs), linhas (tempo) e mapas (geografia).
 
-### 2.6 Preparo para a próxima etapa (seção 23)
+### 2.6 Preparo para a próxima etapa (seção 21)
 
 Prepara as bases estadual, regional e nacional, com uma linha por ano × território × área, fração amostral e medida principal. Exporta em CSV se `EXPORTAR_TABELAS = True`.
 
@@ -131,11 +131,20 @@ Prepara as bases estadual, regional e nacional, com uma linha por ano × territ�
 
 ## 3. Etapa 2 — Desigualdades e condições dos territórios
 
-### 3.1 Mudança de pergunta e de unidade (seções 24 e 31)
+Depois de descrever as distribuições na Etapa 1, pergunta-se **se estão sendo comparados grupos semelhantes, como variam os perfis dos participantes e quais condições territoriais acompanham as notas**, para, então, a Etapa 2 focar em **quais condições econômicas e escolares acompanham as diferenças** de desempenho. A finalidade declarada é apoiar o diagnóstico de necessidades educacionais, e **não** decidir sozinha a distribuição de recursos.
 
-A etapa 2 passa a focar em **quais condições econômicas e escolares acompanham as diferenças** de desempenho. A finalidade declarada é apoiar o diagnóstico de necessidades educacionais, e **não** decidir sozinha a distribuição de recursos.
+**Unidades e universos usados:**
 
-A unidade de análise é **UF × ano × área**, abrangindo 27 UFs, cinco regiões, cinco áreas e as edições de 2020 a 2024.
+| Unidade | Onde entra | Universo |
+|---|---|---|
+| Inscrição por edição | Situação escolar entre inscritos | Arquivo público de cada edição |
+| Nota por inscrição e área | Distribuições e comparações de redes | Amostra de 10% de elegíveis com UF escolar |
+| Nota por inscrição e área | Cobertura, evolução e decomposição | Resumos de todos os elegíveis do recorte |
+| Inscrição com quatro provas | Perfis relativos | Amostra conjunta de 10% por UF e ano |
+| Escola por ano | Oferta e infraestrutura | Escolas ativas com ensino médio no Censo |
+| UF por ano e área | Associações e alvo futuro | Resumos do ENEM ligados a contexto territorial |
+
+- **Por quê:** as notas das cinco áreas permanecem separadas (escalas diferentes) e as edições são **cortes sucessivos de participantes**, não os mesmos alunos acompanhados no tempo. Deixar a unidade explícita em cada painel evita comparar universos diferentes sem perceber.
 
 **Fontes integradas:**
 
@@ -143,147 +152,183 @@ A unidade de análise é **UF × ano × área**, abrangindo 27 UFs, cinco regiõ
 |---|---|---|
 | ENEM (Inep) | Notas, presença, UF, rede | UF + ano + área |
 | Censo Escolar (Inep) | Recursos de infraestrutura, matrículas, tempo integral | UF + ano (rede, no recorte estadual) |
-| PNAD Contínua (IBGE, tabela 7531) | Renda domiciliar por pessoa | UF + ano |
+| PNAD Contínua (IBGE, tabela 7531) | Renda domiciliar média por pessoa | UF + ano |
 | Indicadores educacionais (Inep) | Formação docente, horas-aula, rendimento | UF + ano (+ rede quando disponível) |
 
-ENEM, Censo Escolar e PNAD formam o núcleo da integração; os indicadores educacionais entram como fontes complementares. O FUNDEB, que chegou a fazer parte da proposta, foi retirado (ver 3.7).
+O FUNDEB, que chegou a fazer parte da proposta, foi retirado (ver 3.5).
 
-**Escolhas importantes:**
+### 3.0 Navegação dos painéis
 
-- **A junção é territorial (UF), não individual.** A expectativa inicial era ligar ENEM e Censo Escolar para avaliar a infraestrutura da escola de cada aluno. Entretanto, como não há chave de escola comparável em todos os outros arquivos usados, o Censo agora representa a **oferta de ensino médio da UF**, e não a escola frequentada por cada participante. Não se tenta localizar pessoas por nome, nota ou posição de linha.
-- **Renda deflacionada pelo IPCA** para preços de 2024, mantendo também a versão original para conferência. A variável 10824 da PNAD informa o rendimento médio mensal real domiciliar por pessoa, a preços médios do próprio ano. Ressalva: o IPCA é um índice nacional, não o custo de vida de cada UF.
-- **Resumir o Censo por UF e ano antes de juntar:** o Censo tem uma linha por escola; juntar direto multiplicaria linhas do ENEM.
-- **Junção `many_to_one` com `validate` e `indicator`:** as cinco áreas de uma UF/ano recebem o mesmo contexto, sem criar participantes novos.
+- Os painéis são interativos (filtros de **Área**, **Ano**, **Período** e, quando há mais de uma pergunta no mesmo painel, **Vista**), e cada figura tem botão para baixar o recorte exibido em PNG.
+- **Escalas:** painéis de proporção usam sempre **0% a 100%**; frequências, caudas e mapas de calor ajustam os limites ao recorte exibido.
 
-### 3.2 Diagnósticos sobre o próprio ENEM (seções 25–30)
+### 3.1 Cobertura, elegibilidade e situação escolar
 
-A seção 25 prepara os filtros e as regras de agregação dos painéis seguintes: nas comparações nacionais e regionais agregam-se as notas ou os registros originais (**não se calcula a média das medianas dos estados**). "Públicas" reúne federal, estadual e municipal; rede não informada fica identificada e não é atribuída à rede pública.
+- **Auditoria nacional: o que muda quando exigimos UF escolar?** Compara a cobertura (notas com UF ÷ todas as notas elegíveis) e a média de quem tem UF com a de quem não tem. Três recortes cumprem funções diferentes:
 
-| Seção | Pergunta | Cuidado metodológico |
+| Recorte | Para que serve |
+|---|---|
+| Todos os elegíveis, com e sem UF escolar | Auditoria nacional de cobertura e seleção |
+| Amostra limpa de ~10%, com UF escolar | Histogramas, percentis, caudas e comparações por rede e localização |
+| Resumos completos dos elegíveis com UF escolar | Trajetórias, indicadores de desempenho e integração com as fontes por UF |
+
+- **Quem se inscreve e quem aparece nas notas?** Usa `TP_ST_CONCLUSAO`, que é a situação de conclusão do Ensino Médio.
+  - Três painéis: inscrições nacionais por situação (denominador inclui ausentes da prova), auditoria de seleção por situação e faixas de nota por situação escolar.
+  - Como em 2024 a variável está em um arquivo e as notas em outro, **2024 entra só no painel de inscritos** e fica indisponível no cruzamento situação × nota.
+
+- **O sorteio preserva a composição observável?** Confere-se contagens por área, cobertura, mediana estadual, contagens por rede e localização, o multiconjunto de notas sorteadas e a amostra conjunta. Compara a participação de cada rede/localização na amostra e no total **dentro de cada ano × UF × área**, medindo a diferença em pontos percentuais.
+  - **Por quê:** a estratificação é por ano × UF × área; rede e localização são apenas verificações posteriores. Isso resulta em 675 estratos (27 UFs, 5 anos e 5 áreas) (mais detalhes na seção 3.5).
+
+### 3.2 Distribuições, território e mudanças no tempo
+
+| Painel | Pergunta | Cuidado metodológico |
 |---|---|---|
-| 26 | A parcela com UF conhecida mudou? E a média de quem tem UF difere da de quem não tem? | Comparação nacional (não se atribui UF a quem não informa); registra a mudança de documentação do Inep em 2024 sem atribuir a ela, sozinha, a queda |
-| 27 | A mediana representa bem a distribuição? Há dois picos? | Curvas suaves com três larguras de suavização; se o pico some ao mudar a suavização, não é chamado de grupo. Notas zero ficam nas medidas, mas saem das curvas |
-| 28 | Como as notas evoluíram? | Variação do ano anterior; variação de 2020 fica ausente (não há 2019), o que **não** equivale a zero |
-| 29 | A queda se repete nas cinco áreas? | Mapa de calor de variação por área; a hipótese "tudo caiu em todo lugar" deve ser conferida célula a célula |
-| 30 | A comparação muda ao separar rede e localização? | Curvas só para grupos com pelo menos 30 notas (precaução de leitura, não garantia de precisão) |
+| Histograma + densidade | O centro resume bem as notas ou esconde grupos distintos? | Linhas de média e mediana; faixa Q1–Q3. Três curvas suavizadas sobre notas positivas; se um pico some ao aumentar a suavização, isso não prova que ele era falso. Contagem de picos é diagnóstico exploratório, não teste de bimodalidade. Notas zero ficam nas medidas e saem só das curvas. Redação é discreta: mostram-se frequências. |
+| Comparação de distribuições | Uma mediana parecida esconde distribuições diferentes? | Vistas: entre regiões, entre UFs da região e entre edições. Distribuição acumulada; mediana com P25–P75 e P10–P90; **caudas** abaixo de P20 e acima de P80 da amostra nacional (cortes fixos); contribuição de cada faixa à diferença de médias. Região é resumida a partir das notas reunidas, então UFs maiores pesam mais. |
+| Visão geral das cinco áreas | A cauda escolhida é parecida entre áreas, regiões e edições? | Mapa de calor da parcela na cauda; corte próprio por área; células com menos de 30 notas ficam em branco. |
+| Trajetórias | A queda está em todas as áreas e todos os anos? | Variação em pontos entre anos consecutivos; **2020 fica ausente (não há 2019), o que não equivale a zero**. Q1–Q3 descreve dispersão, não incerteza da mediana. |
+| Mudanças entre edições | Como a distribuição mudou entre duas edições? | Por UF ou região, para mediana, P5, P95, Q1 e Q3. Se o P5 cai mais que a mediana, a parte inferior mudou mais. |
 
-### 3.3 Oferta escolar (seções 32–34)
+- Normalidade não é requisito para usar a média nem critério automático para escolher a mediana; havendo grupos distintos, eles devem ser descritos também. As curvas de densidade são ferramenta de leitura, não método para identificar perfis de alunos.
+- Todas as comparações descrevem a amostra de elegíveis **com UF escolar informada**; diferenças entre territórios e edições também podem refletir cobertura, composição e características da prova.
 
-- **Seção 32 — carências:** percentual de escolas de ensino médio com cada recurso (água, energia, esgoto, internet, laboratório, biblioteca etc.). Valores ausentes **não viram "não"**: o denominador é o número de respostas válidas de cada item. A cor representa disponibilidade, não qualidade.
-- **Seção 33 — evolução da oferta:** acompanha um recurso ou o tempo integral entre 2020 e 2024. O tempo integral usa **matrículas** como peso; os demais recursos usam escolas com resposta válida. O texto evita atribuir todo aumento ao programa federal criado em 2023.
-- **Seção 34 — recorte coerente da rede estadual:** cria uma base em que notas, infraestrutura e indicadores se referem à **rede estadual**, aproximando o diagnóstico da atuação de uma secretaria. A renda segue sendo da UF inteira, com essa diferença explícita. Não se junta essa base à geral como se fossem observações independentes, pois compartilham participantes.
+### 3.3 Composição dos participantes
 
-### 3.4 Associações (seções 35–36)
+- **Comparações dentro da rede e da localização (urbana/rural):** permite comparar qualquer par de UFs ou regiões. Agrega as notas da amostra por território, ano e área, sem nova amostragem por filtro. Grupos com menos de 30 notas não recebem curva (precaução de leitura, não garantia de precisão).
+  - Rede privada **não** significa escola preparatória: os arquivos não informam cursinho ou intensidade de preparação. Diferença urbana/rural também não mede, sozinha, o efeito do isolamento geográfico.
 
-- **Correlação de Spearman** entre indicadores e mediana, uma característica por vez, com cada ponto sendo uma UF no mesmo ano e área.
-  - **Por quê Spearman:** só considera a ordem dos estados, é robusta a valores extremos e não pressupõe relação linear.
-- Não se calculam dezenas de p-valores para "provar fatores"; os coeficientes são **exploratórios**. Grupos com menos de 4 UFs ou sem variação ficam sem coeficiente.
-- O gráfico à direita mostra se a associação **persiste entre os anos**; uma relação que aparece em um só ano merece cautela.
-- A seção 34 reúne tudo em mapa de calor (todas as áreas, todos os anos), registrando o número de UFs em cada cálculo. A cor é associação, **não** importância de variável nem efeito de política.
-- A seção 35 compara **mudanças** (ano final menos inicial) em vez de níveis, para confrontar a associação de níveis, que pode refletir diferenças históricas entre estados.
-- Lembrando que, com apenas cinco edições, não é possível isolar um efeito atrasado da pandemia por simples correlação.
+- **Mudança na participação das redes e decomposição da média:** o primeiro gráfico mostra a participação de uma rede por ano. O segundo compara duas edições nos grupos **UF × rede × localização**: variação observada da média, variação mantendo a composição inicial e a diferença entre as duas. O percentual de notas dos grupos comuns informa a abrangência.
+  - A decomposição é descritiva, vale para a **média**, depende do ano inicial como referência e não separa renda, seleção dentro dos grupos nem mudanças no exame.
 
-### 3.5 Composição dos participantes (seção 38)
+### 3.4 Desempenho relativo da mesma pessoa
 
-Testa uma explicação verificável antes de atribuir a queda a um evento: *parte da variação vem de mudanças na proporção de redes e localizações?*
+**Diferença de posição entre pares de áreas.** Pergunta se um mesmo participante ocupa posições diferentes nas quatro provas objetivas.
 
-- Recalcula a média do ano final **mantendo os pesos do ano inicial** entre grupos UF × rede × localização.
-- É uma decomposição descritiva da **média**, não da mediana, e não separa renda, seleção, pandemia, currículo ou políticas.
+- **Exige amostra nova:** os sorteios por área da Etapa 1 foram independentes e não servem. Usa-se uma amostra **conjunta de 10% por UF e edição**, com semente fixa, entre elegíveis com as quatro provas válidas e UF escolar conhecida.
+- Cada prova vira um **percentil** na distribuição nacional do recorte elegível da edição. Compara-se a média dos percentis de MT/CN com a de LC/CH. A faixa de "posições próximas" é uma regra descritiva ajustável (corte de 10 a 20 pontos percentuais), **não** um diagnóstico de aptidão.
+- A dispersão usa até 2.500 pontos; as barras comparam a parcela de um perfil entre UFs de uma região ou entre regiões, com denominador igual a todas as observações do grupo.
 
-### 3.6 Perfis de desempenho (seção 39)
+**Posições próximas podem ser altas ou baixas.** Cruza as médias dos percentis em quadrantes, com duas definições para testar se a conclusão depende delas: **corte 50** (alto a partir de 50) e **corte 40/60** (≤40 baixo, ≥60 alto, o restante é intermediário). A prevalência de cada perfil só é exibida com pelo menos 30 participantes.
 
-Pergunta se a mesma pessoa ocupa posições diferentes entre as áreas.
+- O grupo de renda familiar vem de `Q006` até 2023; **em 2024, renda e situação escolar ficam indisponíveis nesse cruzamento** (não se tenta ligar arquivos por posição de linha).
 
-- **Exige amostra nova:** a amostra por área da etapa 1 não serve, porque os sorteios por área foram independentes. Usa-se uma amostra **conjunta de 10%** por UF e ano, entre quem tem as quatro provas objetivas válidas.
-- Transforma notas em **posição percentual** dentro de área e edição, e compara a média das posições em MT/CN contra LC/CH. A diferença de ≥ 15 p.p. é uma regra descritiva ajustável, **não** um diagnóstico de aptidão.
-- A renda familiar individual só existe até 2023 no material processado; em 2024 não se tenta ligar arquivos por posição de linha.
+**Auditoria nacional: situação escolar e perfis.** Entre 2020 e 2023, a amostra conjunta com UF escolar é formada integralmente por concluintes declarados. Para comparar situações, o notebook amplia o universo para **todos os elegíveis com quatro provas válidas no país** (inclusive sem UF), com **novos percentis nacionais** calculados nesse universo. Por isso os percentuais desse painel e os dos quadrantes territoriais têm referências diferentes e não devem ser misturados. Em 2024, os arquivos públicos separados impedem classificar perfis por situação.
 
-### 3.7 Uso da base FUNDEB (seção 40)
+**Documentação do período e diagnóstico da TRI.** Tabela de contexto histórico, tratado como **contexto, não como variável de tratamento**:
 
-- **Variável disponível pode não ser adequada à pergunta (seção 40):** aumentar a quantidade de fontes não garante uma base melhor. O **FUNDEB** disponível descreve apenas dezembro, não o investimento anual no ensino médio estadual, e dividir o valor pelas matrículas não corrige a incompatibilidade. Por isso foi retirado dos gráficos de associação, da junção principal e das entradas de previsão. Uma ampliação futura precisaria de gasto executado anual, rede e etapa compatíveis, correção monetária e data de divulgação conhecida.
+| Referência | Como entra na leitura |
+|---|---|
+| 2020–2021: interrupção das aulas presenciais | Torna plausível investigar consequências posteriores; não mede quanto cada participante perdeu |
+| 2023: criação do Programa Escola em Tempo Integral | Motiva observar oferta e jornada; anúncio não é execução, nem toda matrícula integral é adesão ao programa |
+| 2024: apoio ao acesso ao ENEM no Ceará (transporte gratuito) | Pode motivar estudos de participação; não demonstra aumento de nota |
+| ENEM: notas e comparabilidade (TRI) | Acertos iguais não exigem notas iguais; diferença entre anos não comprova mudança do método |
 
-### 3.7 Contexto histórico (seção 41)
+- **Conclusão sobre a pandemia:** os dados **não** permitem atribuir a queda de 2024 a um "lag da pandemia" (sem acompanhamento individual, exposição escolar detalhada nem grupo contrafactual).
+- **Conclusão sobre escolas preparatórias:** não há variável comparável em todas as UFs e anos; a hipótese fica pendente e a rede privada não é usada como substituto.
+- **Diagnóstico de acertos (2023 e 2024):** relaciona número de acertos e nota, para ilustrar a TRI. Reúne notas elegíveis com e sem UF, fica separado da integração por estado e se limita aos anos já conferidos nessa preparação.
 
-- **Contexto histórico em tabela:** interrupção das aulas (2020–2021), Programa Escola em Tempo Integral (2023), apoio de transporte no Ceará (2024) e a TRI do ENEM. Esses eventos são **contexto**, não variáveis de tratamento.
-- **Conclusões deliberadas:** os dados **não** permitem atribuir a queda de 2024 a um "lag da pandemia" (sem acompanhamento individual nem grupo contrafactual) e **não** há variável comparável para cursinhos preparatórios (rede privada não é usada como substituto).
-- **Diagnóstico de acertos (2023 e 2024):** relaciona número de acertos e nota média, para ilustrar que a TRI não dá notas iguais a quantidades iguais de acertos. Está limitado aos anos já conferidos nessa preparação.
+### 3.5 O que acrescentam as fontes externas?
 
-### 3.8 Uso para gestão (seção 40)
+**Fontes, unidades e chaves:** Utiliza-se da estratificação por **UF da escola × edição × área**, partindo dos resumos completos das notas elegíveis com UF conhecida.
 
-Gráfico da rede estadual com renda (eixo x), mediana (eixo y), cor por região e tamanho do ponto proporcional à carência do recurso escolhido, sendo que as linhas tracejadas são medianas entre UFs. O texto insiste: **não é um ranking de prioridade** e nenhuma situação isolada demonstra qual intervenção funcionará. Antes de qualquer decisão, seria preciso conferir cobertura, desigualdades internas, demanda local e outras avaliações, como o Saeb.
+- **A junção é territorial (UF), não individual:** A expectativa inicial era ligar ENEM e Censo Escolar para avaliar a infraestrutura da escola de cada aluno. Entretanto, como não há chave de escola comparável em todos os outros arquivos usados, o Censo agora representa a **oferta de ensino médio da UF**, e não a escola frequentada por cada participante. Não se tenta localizar pessoas por nome, nota ou posição de linha.
+- **Junção `many_to_one` com `validate` e `indicator`:** as cinco áreas de uma UF/ano recebem o mesmo contexto, sem criar participantes novos.
+- **Por quê resumir o Censo por UF e ano antes de juntar:** o Censo tem uma linha por escola; juntar direto multiplicaria linhas do ENEM.
+- **Renda:** a variável 10824 da PNAD é o rendimento médio mensal real domiciliar por pessoa, a preços médios do próprio ano, que foi reexpressada em **preços de 2024 pelo IPCA** (tabela 1737) para a descrição e guarda a série em **preços de 2020** para a Etapa 3. Ressalva: o IPCA é nacional, não o custo de vida de cada UF.
+- **Disponibilidade:** antes de juntar, confere-se que as seis tabelas anuais (ENEM, Censo, PNAD, formação docente, horas-aula e rendimento) têm as 27 UFs em cada ano.
 
----
+>**Exclusão do FUNDEB mensal.** Aumentar a quantidade de fontes não garante uma base melhor. O FUNDEB disponível descreve **apenas dezembro**, não o investimento anual no ensino médio estadual, e dividir o valor pelas matrículas não corrige a incompatibilidade. Foi retirado dos gráficos de associação, da junção principal e das entradas de previsão. Uma ampliação futura precisaria de gasto executado anual, rede e etapa compatíveis, correção monetária e data de divulgação conhecida.
 
-## 4. Preparação para a etapa 3 (seções 43–46)
+**Recorte da rede estadual:** Para aproximar o diagnóstico da atuação de uma secretaria, notas, infraestrutura e indicadores passam a ser da **rede estadual**; a renda segue sendo da UF inteira, com essa diferença explícita. A delimitação vem da pergunta de gestão e da compatibilidade das fontes, não de buscar correlação maior.
 
-### 4.1 Escolha de atributos (seção 43)
+- Recalcula mediana, média e quartis diretamente de todas as notas elegíveis estaduais (não junta medianas urbanas e rurais). A amostra é mantida só para comparar estimativa amostral com resumo completo.
+- Sequência: (1) resumo amostral ao completo, `ANO` + `UF_ESCOLA` + `AREA`, `one_to_one`; (2) contextos por `ANO` + `UF_ESCOLA`, `many_to_one`. A média é conferida pela soma ponderada dos grupos (válida para a média, não para a mediana).
+- As bases geral e estadual compartilham participantes e **não devem ser empilhadas** como exemplos independentes.
 
-Parte da pergunta, não da quantidade de colunas. **Candidatos:** renda real por pessoa, matrículas em tempo integral, formação docente adequada, abandono, internet e laboratório de ciências, além da mediana do ano anterior como referência indispensável.
+**A chave existe. Os indicadores têm informação suficiente?** A auditoria separa chave correspondente de valor preenchido, contando ausentes por variável em UF × ano (sem repetir o contexto cinco vezes). Para recursos, cada escola com resposta vale uma unidade; para jornada, o numerador soma matrículas integrais e o denominador, matrículas de ensino médio. O Grupo 1 da formação docente mede adequação à disciplina lecionada, sem separar áreas do ENEM. Nenhuma junção identifica exposição individual.
 
-- Gráfico de **redundância** (Spearman entre candidatos), usando uma linha por UF e ano, para não repetir cada UF cinco vezes por causa das áreas. Correlação alta é sinal para avaliar alternativas, não critério automático de exclusão.
-- Aprovação, reprovação e abandono são relacionados entre si, então não entram todos automaticamente.
-- Renda nominal e deflacionada não entram juntas; FUNDEB de dezembro fica fora; perfis derivados das notas do ano-alvo **não** podem prever essas mesmas notas.
+### 3.6 Oferta escolar e associações com o desempenho
 
-### 4.2 O que prever e o tamanho do problema (seção 44)
+**Oferta escolar:**
 
-**Pergunta de continuidade:** com informações anteriores, é possível estimar a mediana do ENEM dos participantes da rede estadual em cada UF e área no ano seguinte? A utilidade seria sinalizar territórios para investigação de necessidades, não distribuir recursos automaticamente nem estimar o efeito de uma política.
+- **Infraestrutura por território:** percentual de escolas de ensino médio com cada recurso (água, energia, esgoto, internet, laboratório, biblioteca etc.), por região ou UF, ano, rede e localização.
+- **Visão geral dos recursos:** mapa de calor com todos os recursos no mesmo painel; a escala de cor acompanha os percentuais exibidos. A cor é disponibilidade, não qualidade.
+- **Evolução da oferta (2020–2024):** acompanha um recurso ou o tempo integral. O tempo integral usa **matrículas** como peso; os demais usam escolas com resposta válida. Não deve-se atribuir todo o aumento ao programa federal de 2023, pois já havia iniciativas estaduais e escolas de tempo integral.
 
-- **Por que manter as 27 UFs:** são comparáveis nas três fontes centrais durante 2020–2024. Selecionar só São Paulo deixaria cinco registros anuais por área. Passar para municípios ou escolas exigiria outra população-alvo, outras chaves e auditoria de cobertura. O código de escola voltou ao ENEM público em 2024, mas a série escolar anterior não é reconstruída por notas ou posição de linha.
-- **O gargalo é o tempo observado, não o volume de participantes:** são 135 registros por área (27 UFs × 5 anos), ou seja, cinco problemas separados. Os milhões de notas tornam os resumos mais precisos, mas não criam milhões de exemplos territoriais para previsão.
-- **Ajustes simples de diagnóstico:** o notebook anuncia ajustes simples para testar a viabilidade da base, que não constituem o modelo final. Até a seção 46 ainda não há treino de modelo (apenas a importação das ferramentas, como regressão Ridge e padronização). Toda comparação de previsão usará anos posteriores ao treino, e, como 2020–2024 já foram explorados, **nenhum desses anos será chamado de teste cego**.
-- **Edição de 2025:** a página oficial do ENEM já a listava na consulta de 27/10/2026. Ela não foi incorporada nem avaliada; poderá servir de validação adicional após congelar o protocolo, se o grupo não a tiver explorado, e ainda será preciso verificar sua comparabilidade.
-- A construção de uma base com **atributos de anos anteriores** ao resultado (para evitar usar informação que não estaria disponível antes do exame) é um princípio declarado, mas essa tabela ainda não é gerada no notebook.
+**Associações com o desempenho:**
 
-### 4.3 Formas de associação (seção 46)
+- **Associações territoriais:** correlação de **Spearman** entre um indicador e a mediana, uma característica por vez, com cada ponto sendo uma UF no mesmo ano e área (universos: todas as redes ou rede estadual).
+  - **Por quê Spearman:** só considera a ordem dos estados, é robusto a valores extremos e não pressupõe relação linear.
+  - Coeficientes são **exploratórios**: o gráfico por ano mostra se a relação persiste; uma relação que aparece em um só ano merece cautela.
+  - Aprovação, reprovação e abandono são relacionados entre si, então não entram todos automaticamente num modelo.
+- **Estabilidade por área e edição:** mapa de calor com todas as áreas (sem somar notas), registrando quantas UFs entram em cada cálculo. A cor é associação, **não** importância de variável, porcentagem explicada ou efeito de política.
+- **Diagnóstico conjunto de renda, notas e recursos:** gráfico da rede estadual com renda (eixo x), mediana (eixo y), cor por região e tamanho do ponto proporcional à proporção de escolas estaduais **sem** o recurso. **Não é ranking de prioridade**: antes de qualquer decisão seria preciso conferir cobertura, desigualdades internas, demanda local e outras avaliações, como o Saeb.
 
-O Spearman sozinho não responde a toda a pergunta. A seção compara três medidas, para os seis atributos candidatos, em cada ano e área da rede estadual:
+### 3.7 Quais relações são estáveis?
+
+**Redundância dos atributos candidatos.** A escolha parte da pergunta, não da quantidade de colunas. Lista inicial: renda, tempo integral, formação docente, abandono, internet e laboratório de ciências, com a mediana do ano anterior como referência indispensável.
+
+| Informação | Decisão inicial |
+|---|---|
+| Mediana por área | Resultado a estimar; média como análise de sensibilidade |
+| Mediana do ano anterior | Referência simples: comparar o futuro modelo com "repetir a nota anterior" |
+| Renda real por pessoa | Manter uma versão de preços; não usar nominal e deflacionada juntas |
+| Matrículas integrais, formação docente, abandono, internet e laboratório | Candidatas (presença não mede qualidade ou uso) |
+| Horas-aula, biblioteca, água e outras condições | Alternativas e diagnóstico; revisar redundância antes do treino |
+| N, cobertura e respostas válidas | Guardar para auditoria; não usar como "nota de qualidade" |
+| FUNDEB de dezembro | Excluir até haver série anual de execução adequada |
+| Perfis feitos com as notas do mesmo ano | Não usar para prever as próprias notas que os definiram |
+
+O gráfico de redundância usa **Spearman entre candidatos, com uma linha por UF no ano escolhido**, para não repetir cada UF cinco vezes por causa das áreas. Correlação alta é sinal para avaliar alternativas, não critério automático de exclusão.
+
+**Forma das associações e influência das UFs.** O Spearman sozinho não responde a toda a pergunta. A seção compara três medidas, para os seis candidatos, em cada ano e área:
 
 - **Pearson:** alinhamento em uma reta;
-- **Spearman:** concordância de ordenações, aceitando relações crescentes ou decrescentes curvas;
-- **correlação de distâncias:** pode detectar outras dependências, inclusive formas em U. Não tem sinal, e seu valor amostral positivo não comprova associação.
+- **Spearman:** concordância de ordenações, aceitando curvas crescentes ou decrescentes;
+- **correlação de distâncias:** pode detectar outras dependências, inclusive formas em U; não tem sinal, e valor amostral positivo não comprova associação.
 
 Cuidados e critérios:
 
-- **Influência de cada UF:** repete-se o Spearman retirando uma UF por vez; o intervalo mínimo–máximo mede influência, **não** é intervalo de confiança. Nenhuma UF é excluída por alterar o resultado.
-- **Permutações dentro das regiões:** para Pearson e distância usam-se 999 permutações do resultado **dentro de cada região**, preservando a composição regional. A referência pergunta se há mais associação do que a obtida ao reorganizar as UFs dentro das regiões; ela pressupõe que essas trocas sejam razoáveis sob a hipótese nula, e dependência espacial e diferenças internas limitam a interpretação.
-- **Múltiplos testes:** aplica-se a correção Benjamini–Yekutieli sobre os **300 testes** (6 atributos × 5 áreas × 5 anos × 2 medidas). Ela reduz falsas descobertas sob dependência entre testes, mas não corrige um teste cuja hipótese de permutação seja inadequada.
-- Um teste de distância significativo **não prova** que a relação seja especificamente não linear, pois relações lineares também são dependentes. A utilidade de permitir curvas será avaliada adiante, na previsão de anos posteriores.
-- O painel mostra os pontos com uma reta e uma curva descritivas (que descrevem os pontos atuais, não demonstram capacidade de previsão), as três medidas lado a lado, o intervalo de influência e os p-valores ajustados. Os resultados são salvos em `associacoes_lineares_nao_lineares.csv`.
+- **Influência de cada UF:** repete-se o Spearman retirando uma UF por vez; o intervalo mínimo–máximo mede influência, **não** é intervalo de confiança.
+- **Permutações dentro das regiões:** para Pearson e distância, 999 permutações do resultado dentro de cada região, preservando a composição regional. A referência pergunta se há mais associação do que a obtida ao reorganizar UFs dentro das regiões; pressupõe que essas trocas sejam razoáveis sob a hipótese nula, e dependência espacial limita a interpretação.
+- **Múltiplos testes:** correção Benjamini–Yekutieli sobre os **300 testes** (6 atributos × 5 áreas × 5 anos × 2 medidas). Reduz falsas descobertas sob dependência, mas não corrige um teste cuja hipótese de permutação seja inadequada.
+- Um teste de distância significativo **não prova** relação especificamente não linear. A utilidade de permitir curvas será avaliada na previsão, na Etapa 3.
+
+**A associação reaparece quando o contexto muda?** Contrasta duas perguntas na rede estadual, para renda, tempo integral e formação docente:
+
+- **Entre UFs, em uma edição:** correlação dos postos bruta e **ajustada** (projeção linear dos postos retirando região e os outros dois indicadores). O ajuste é descritivo, depende dos controles escolhidos e pode ser instável com 27 UFs.
+- **Mudanças anuais:** dentro de cada UF, variação da mediana e de cada atributo; Spearman entre UFs em cada uma das quatro transições, mostradas separadamente para não tratar a repetição de uma UF como independência. Sinal diferente entre níveis e mudanças orienta a investigação da série e da composição, sem identificar efeitos de políticas.
+- Com apenas cinco edições, não é possível isolar um efeito atrasado da pandemia por simples correlação.
 
 ---
 
-<!-- ## 6. Relação com o relatório contínuo
+## 4. Preparação para a etapa 3
 
-| Data | Orientação ou tarefa do relatório | Onde aparece no notebook |
-|---|---|---|
-| 06/08 | Tema e bases candidatas (ENEM, Censo Demográfico, ENEM por escola, Censo Escolar) | Etapas 1 e 2 usam microdados do ENEM e Censo Escolar, mais PNAD/IBGE e indicadores do Inep |
-| 13/08 | Verificar se SP concentra participantes | Seção 10 (concentração por UF e região) |
-| 13/08 | Mapear notas nos estados, sem taxas por falta de população de referência | Seções 16, 18 e 22; o texto reforça que mais participantes ≠ maior taxa |
-| 13/08 | Análise temporal de ao menos cinco anos | Período fixo 2020–2024 em todo o notebook |
-| 13/08 | Aleatoriedade computacional suficiente para a amostra | Amostra de 10% sem reposição com semente fixa |
-| 13/08 | Avaliar o tipo de gráfico mais adequado e lidar com grande volume | Histogramas, barras, linhas, mapas e mapas de calor; leitura em blocos e amostragem |
-| 20/08 | Mapa coroplético sem média; examinar a distribuição | Mediana como medida única (seção 11), histogramas e diagnóstico de normalidade (seções 14–15 e 27) |
-| 20/08 | Segregação regional e estados extremos | Região por UF; rankings de maiores e menores (seção 18) |
-| 20/08 | Análise de valores nulos | Cobertura da UF escolar (seções 9 e 26), auditoria de ausentes (seção 45) |
-| 27/08 | Padronizar uma amostra para todos os gráficos | Amostra única estratificada, com validação |
-| 03/09 | Ligar microdados do ENEM ao Censo Escolar para avaliar infraestrutura | Seções 24–35, com junção **territorial** por UF e ano (limitação explicada na seção 4.1 deste documento) |
+### 4.1 O problema e o tamanho dos dados
 
-**Pontos do relatório que não aparecem como análises separadas no notebook:** os boxplots por área e as barras empilhadas (tarefas individuais de 13/08 e 20/08) e a modelagem preditiva com matriz de importância (27/08). O notebook mantém como equivalentes os histogramas, os quartis/percentis e a preparação da base para a etapa de modelagem; a modelagem em si foi deliberadamente deixada para a etapa 3.
+**Alvo:** prever a **mediana dos elegíveis do ENEM da rede estadual, por UF escolar e área, no ano seguinte**. A utilidade seria indicar onde aprofundar o diagnóstico territorial, não distribuir recursos automaticamente nem estimar efeito de política.
 
---- -->
+- **Validação cronológica:** todas as UFs de um mesmo ano-alvo entram juntas na avaliação, e o treino usa apenas anos-alvo anteriores. A **persistência da mediana anterior** será a referência de comparação; as áreas são tratadas separadamente.
+- **O gargalo é o tempo observado, não o volume de participantes:** são 135 linhas por área na série completa (27 UFs × 5 anos) e **108 pares ano-origem → ano-alvo por área**, com as mesmas UFs em cada transição. Os milhões de notas tornam os resumos precisos, mas não criam milhões de exemplos territoriais.
+
+### 4.2 Atributos, data de corte e tabela de transições
+
+- **Atributos candidatos (do ano anterior):** mediana anterior, renda real por pessoa (em preços fixos de 2020, anterior a todos os alvos; os gráficos descritivos usam 2024), matrículas integrais, formação docente adequada, abandono, internet, laboratório de ciências e, como alternativa, horas-aula por dia.
+- **Atributos derivados das notas do ano-alvo, perfis e contagens de controle** ficam em tabelas separadas e não entram como entrada.
+- **Data de corte proposta: 30 de junho do ano-alvo.** Para cada série, a Etapa 3 deverá confirmar que a versão do indicador do ano anterior estava publicada até essa data. A auditoria atual só dispõe dos anos de referência, não das datas de publicação por edição de cada fonte; por isso cada linha traz `STATUS_TEMPORAL` = pendente. A mediana anterior também precisa passar por essa verificação.
+- **Junção entre edições:** à esquerda, os alvos de 2021 a 2024; à direita, os atributos de 2020 a 2023, com a chave de ano deslocada em um e a edição de origem guardada em `ANO_REFERENCIA`. O código exige correspondência `one_to_one` e que a diferença entre anos seja sempre igual a um.
+
+---
 
 ## 5. Limitações gerais registradas
 
 1. O ENEM retrata **seus participantes**, não todos os estudantes; há seleção de quem faz a prova.
 2. A cobertura da UF escolar varia entre anos e a ausência não é imputada.
-3. A amostra descreve elegíveis **com UF da escola informada**.
+3. A amostra descreve elegíveis **com UF da escola informada**; quem não informa só entra nas auditorias nacionais.
 4. A série compara **grupos diferentes** de pessoas ao longo dos anos.
-5. Associações entre UFs não são efeitos individuais nem causais, e não há ajuste por outras variáveis.
+5. Associações entre UFs não são efeitos individuais nem causais; o ajuste parcial é descritivo e depende dos controles escolhidos.
 6. Com 27 UFs e 5 anos, o volume de observações territoriais independentes é pequeno.
 7. Mudanças de documentação, de cobertura e de composição entre edições dificultam atribuir quedas a um único evento.
 8. Presença de um recurso (internet, laboratório) não mede qualidade nem uso efetivo.
-
-## 6. Observações técnicas sobre o notebook
-
-- A **Etapa 2 depende de uma pasta pré-processada** (`estudo_enem/dados/`, com arquivos `.csv` e `.parquet`) que não é gerada pelas células do notebook; ela precisa estar no Drive ou na pasta de trabalho. Caso contrário, a célula de carga levanta `FileNotFoundError`.
-- O mapa depende de `malha_ufs_plotly.geojson`; sem ele, só o painel do mapa fica indisponível.
+9. Os perfis com UF escolar de 2020–2023 são todos de concluintes declarados; a comparação por situação escolar usa um universo nacional ampliado, com referência de percentis própria.
+10. Dimensão cultural e cursinhos preparatórios não têm indicador comparável; o FUNDEB mensal foi excluído.
